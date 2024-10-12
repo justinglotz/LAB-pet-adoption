@@ -1,0 +1,46 @@
+.cat {
+  background-color: lightblue;
+  margin: 0;
+}
+
+.dino {
+  background-color: yellow;
+  margin: 0;
+}
+
+.dog {
+  background-color: green;
+  margin: 0;
+}
+
+
+#app {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.card-img-top {
+  width: 200px;
+  height: 200px;
+}
+
+.card {
+  margin: 1%;
+  width: 31%;
+  text-align: center;
+}
+
+.card-title {
+  padding: 8px;
+  background-color: lightgray;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin: 5px 10px;
+}
