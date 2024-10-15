@@ -65,11 +65,11 @@
 }
 
 .btn {
-  margin: 5px 15px;
+  margin: 5px 5px;
 }
 
 form {
-  margin: 20px;
+  margin: 0 20px 20px 20px;
 }
 
 .form-select {
@@ -80,4 +80,12 @@ form {
 .card-img-top {
   max-width: 300px;
   align-self: center;
+}
+
+.btn-danger {
+  margin: 10px auto;
+}
+
+h3 {
+  margin: 0 0 0 24px;
 }

@@ -259,6 +259,7 @@ const cardsOnDom = (array) => {
       <p class="card-text">${item.specialSkill}</p>
       </div>
       <p class="${item.type}">${item.type}</p>
+      <button type="button" class="btn btn-danger" id="delete--${item.id}">Delete</button>
     </div>`;
   }
 
@@ -308,26 +309,54 @@ dinoButton.addEventListener('click', () => {
 // CREATE:
 
 const form = document.querySelector('form');
-
-const createMember = (e) => {
+// Creating a function for adding a new pet
+const createPet = (e) => {
   // Prevent the page from reloading
   e.preventDefault();
-  const newMemberObj = {
+  // Create a new object to store this information
+  const newPetObj = {
+    // Set ID equal to length of array + 1, so it's always the next highest number
     id: pets.length + 1,
+    // Setting values from user input
     name: document.querySelector("#name").value,
     type: document.querySelector("#type").value,
     specialSkill: document.querySelector("#skill").value,
     color: document.querySelector("#color").value,
     imageUrl: document.querySelector("#imageUrl").value
   }
-
-  pets.push(newMemberObj);
+  // Adding new object to the end of the existing array
+  pets.push(newPetObj);
+  // Rendering the new array to the page
   cardsOnDom(pets);
+  // Resetting the form so the values don't stay on the page
   form.reset();
 }
-
-form.addEventListener('submit', createMember);
+// Add event listener so that when the form is submitted (submit button is clicked), createPet function runs
+form.addEventListener('submit', createPet);
 // TODO: Make new element justify to the left instead of center
 
 
 // DELETE:
+
+const app = document.querySelector("#app");
+
+// Create an event listener for clicking the delete button, passing in e (the event object) as an argument because we want to use attributes of e in our function.
+app.addEventListener('click', (e) => {
+
+  // Checks the id of the element where the mouse click was and sees if it has "delete" in it. e.target points to the element that was interacted with.
+  if (e.target.id.includes("delete")) {
+
+    // Set a variable equal to that ID using deconstruction (a way to declare variables in an easy to read and simple way) (setting the variable of ID to the ID of the button that was pressed)
+    const [, id] = e.target.id.split("--");
+
+    // Declaring variable "index". Finding the index of the first element of the array that satisfies the check function. The check function should return a truthy value for a match and a falsy value otherwise. The "pet" parameter in this case can be whatever you want, it just represents each element of the array you're searching through. Return the result of checking if that element's ID equals the ID we stored previously. The function will return true if that condition is met, and will return false otherwise. Then findIndex saves the index position of the first element that satisfies the check function.
+    const index = pets.findIndex(pet => pet.id === Number(id));
+
+    // Start at index position index(set in the previous step) and delete one item. 
+    // .splice has an optional third argument where you can specify what item(s) replace what you deleted, if anything. If you don't delete anything, that element will just be inserted at the index position you specified in the first argument.
+    pets.splice(index, 1);
+
+    // Rendering the updated array to the page.
+    cardsOnDom(pets);
+  }
+})
