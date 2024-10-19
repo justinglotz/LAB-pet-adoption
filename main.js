@@ -243,11 +243,13 @@ const pets = [
     }
   ];
 
+// Function to render HTML to the DOM
 const renderToDOM = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender;
 }
 
+// Adds each element of an array to domString
 const cardsOnDom = (array) => {
   let domString = "";
   for (const item of array) {

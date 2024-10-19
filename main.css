@@ -1,11 +1,23 @@
 /* Refactor this */
+/* 
+TODO: If an element is deleted, have the remaining elements hug the left side of the page, while remaining centered 
 
+*/
 
+#app {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
 
+.wrapper {
+  margin-top: 15px;
+}
 
-.cat {
-  background-color: lightblue;
-  margin: 0;
+/* Filter Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
 }
 
 #cats {
@@ -14,15 +26,26 @@
   border: 1px solid black;
 }
 
+#dinos {
+  background-color: yellow;
+  color: black;
+  border: 1px solid black;
+}
+
+#dogs {
+  background-color: green;
+  border: 1px solid black;
+}
+
+/* Types on cards */
 .dino {
   background-color: yellow;
   margin: 0;
 }
 
-#dinos {
-  background-color: yellow;
-  color: black;
-  border: 1px solid black;
+.cat {
+  background-color: lightblue;
+  margin: 0;
 }
 
 .dog {
@@ -31,37 +54,23 @@
   color: white;
 }
 
-#dogs {
-  background-color: green;
-  border: 1px solid black;
-}
-
-
-#app {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
-
 .card-img-top {
   width: 200px;
   height: 200px;
+  max-width: 300px;
+  align-self: center;
 }
 
 .card {
   margin: 1%;
   width: 31%;
   text-align: center;
+  min-width: 500px;
 }
 
 .card-title {
   padding: 8px;
   background-color: lightgray;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
 }
 
 .btn {
@@ -75,11 +84,6 @@ form {
 .form-select {
   margin-bottom: 15px;
   height: 58px;
-}
-
-.card-img-top {
-  max-width: 300px;
-  align-self: center;
 }
 
 .btn-danger {
