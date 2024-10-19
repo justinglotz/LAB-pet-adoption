@@ -335,7 +335,6 @@ const createPet = (e) => {
 }
 // Add event listener so that when the form is submitted (submit button is clicked), createPet function runs
 form.addEventListener('submit', createPet);
-// TODO: Make new element justify to the left instead of center
 
 
 // DELETE:

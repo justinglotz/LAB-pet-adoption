@@ -1,13 +1,8 @@
-/* Refactor this */
-/* 
-TODO: If an element is deleted, have the remaining elements hug the left side of the page, while remaining centered 
-
-*/
 
 #app {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .wrapper {
@@ -62,8 +57,8 @@ TODO: If an element is deleted, have the remaining elements hug the left side of
 }
 
 .card {
-  margin: 1%;
-  width: 31%;
+  margin: 10px;
+  width: calc(33.33% - 20px);
   text-align: center;
   min-width: 500px;
 }
